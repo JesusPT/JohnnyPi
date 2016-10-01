@@ -1,5 +1,5 @@
 var five = require("/home/pi/Documents/node_modules/johnny-five");
-var Respi = require("raspi-io");
+var Respi = require("/home/pi/Documents/node_modules/raspi-io");
 var board = new five.Board({
   io: new Raspi()
 });
