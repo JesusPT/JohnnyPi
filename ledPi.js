@@ -1,7 +1,7 @@
 var five = require("jhonny-five");
 var Respi = require("raspi-io");
 var board = new five.Board({
-  io: new Raspi();
+  io: new Raspi()
 });
 
 
