@@ -1,13 +1,29 @@
+var express = require('express'),
+    app = express(),
+    http = require('http').Server(app),
+    io = require('socket.io')(http);
+
 var raspi = require('raspi-io');
 var five = require('johnny-five');
 var board = new five.Board({
   io: new raspi()
 });
 
-board.on('ready', function() {
-  led = new five.Led('P1-12');
-  // Create an Led on pin 7 (GPIO4) on P1 and strobe it on/off
-  // Optionally set the speed; defaults to 100ms
-  led.pulse();
+  board.on('ready', function() {
 
+    app.use(express.static('public'));
+
+    app.get('/',function(req, res) {
+      res.render('index');
+    });
+
+
+  // led = new five.Led('P1-12');
+  // led.pulse();
+
+  });
+
+
+http.listen(8080,function () {
+  console.log('server...[OK]');
 });
