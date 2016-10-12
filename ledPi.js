@@ -9,21 +9,21 @@ var board = new five.Board({
   io: new raspi()
 });
 
-  board.on('ready', function() {
+board.on('ready', function() {
 
-    app.use(express.static('public'));
+  app.use(express.static('public'));
 
-    app.get('/',function(req, res) {
-      res.render('index');
-    });
-
-
-  // led = new five.Led('P1-12');
-  // led.pulse();
-
+  app.get('/',function(req, res) {
+    res.render('index');
   });
 
 
-http.listen(8080,function () {
-  console.log('server...[OK]');
+
+
+  http.listen(8080,function () {
+    console.log('server...[OK]');
+    led = new five.Led('P1-12');
+    led.pulse();
+  });
+
 });
