@@ -17,7 +17,11 @@ board.on('ready', function() {
     res.render('index');
   });
 
+  io.on('connection',function (socket) {
 
+    console.log("usuario por socket");
+
+  });
 
 
   http.listen(8080,function () {
