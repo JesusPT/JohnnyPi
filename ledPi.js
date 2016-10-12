@@ -10,6 +10,7 @@ var board = new five.Board({
 });
 
 board.on('ready', function() {
+  var led = new five.Led('P1-12');
 
   app.use(express.static('public'));
 
@@ -19,15 +20,14 @@ board.on('ready', function() {
 
   io.on('connection',function (socket) {
 
-    console.log("usuario por socket");
+    led.toggle();
 
   });
 
 
   http.listen(8080,function () {
     console.log('server...[OK]');
-    led = new five.Led('P1-12');
-    led.pulse();
+
   });
 
 });
